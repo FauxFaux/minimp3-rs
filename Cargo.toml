@@ -1,15 +1,14 @@
 [package]
 name = "minimp3"
 version = "0.1.0"
-authors = ["germän gômez <germangb42@gmail.com>"]
+authors = ["germän gômez <germangb42@gmail.com>", "Chris West (Faux) <git@goeswhere.com>"]
 description = "Rust bindings for the minimp3 library."
 keywords = ["mp3", "audio", "decoder", "mpeg", "media"]
 categories = ["multimedia", "multimedia::audio"]
 license = "MIT"
-repository = "https://github.com/germangb/minimp3-rs.git"
+repository = "https://github.com/FauxFaux/minimp3-rs"
 
 [dependencies]
-#libc = "0.2"
 
 [build-dependencies]
 cc = "1.0"
