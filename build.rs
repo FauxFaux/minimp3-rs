@@ -6,6 +6,7 @@ use std::fs;
 fn main() {
     let bindings = bindgen::Builder::default()
         .header("minimp3/minimp3.h")
+        .derive_default(true)
         .generate()
         .expect("Unable to generate minimp3 bindings");
 

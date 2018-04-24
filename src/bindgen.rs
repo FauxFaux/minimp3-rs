@@ -2,7 +2,7 @@
 
 pub const MINIMP3_MAX_SAMPLES_PER_FRAME: ::std::os::raw::c_uint = 2304;
 #[repr(C)]
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Default, Copy, Clone)]
 pub struct mp3dec_frame_info_t {
     pub frame_bytes: ::std::os::raw::c_int,
     pub channels: ::std::os::raw::c_int,
@@ -157,6 +157,11 @@ fn bindgen_test_layout_mp3dec_t() {
             stringify!(reserv_buf)
         )
     );
+}
+impl Default for mp3dec_t {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
 }
 extern "C" {
     pub fn mp3dec_init(dec: *mut mp3dec_t);
