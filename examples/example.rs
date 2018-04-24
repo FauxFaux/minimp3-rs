@@ -4,11 +4,22 @@ use minimp3::bindgen;
 
 use std::mem;
 
-fn decode_frame(ctx: &mut bindgen::mp3dec_t, mp3_file: &[u8], pcm: &mut [i16], frame_info: &mut bindgen::mp3dec_frame_info_t) -> Option<usize> {
+fn decode_frame(
+    ctx: &mut bindgen::mp3dec_t,
+    mp3_file: &[u8],
+    pcm: &mut [i16],
+    frame_info: &mut bindgen::mp3dec_frame_info_t,
+) -> Option<usize> {
     unsafe {
-        match bindgen::mp3dec_decode_frame(ctx, mp3_file.as_ptr(), mp3_file.len() as _, pcm.as_mut_ptr(), frame_info) {
-            0       => None,
-            n @ _   => Some(n as usize),
+        match bindgen::mp3dec_decode_frame(
+            ctx,
+            mp3_file.as_ptr(),
+            mp3_file.len() as _,
+            pcm.as_mut_ptr(),
+            frame_info,
+        ) {
+            0 => None,
+            n @ _ => Some(n as usize),
         }
     }
 }

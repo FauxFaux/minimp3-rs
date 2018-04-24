@@ -1,5 +1,5 @@
-extern crate cc;
 extern crate bindgen;
+extern crate cc;
 
 use std::fs;
 
@@ -9,7 +9,9 @@ fn main() {
         .generate()
         .expect("Unable to generate minimp3 bindings");
 
-    bindings.write_to_file("src/bindgen.rs").expect("Unable to write bindings to output file");
+    bindings
+        .write_to_file("src/bindgen.rs")
+        .expect("Unable to write bindings to output file");
 
     fs::copy("minimp3/minimp3.h", "minimp3/minimp3.c").expect("Can't copy minimp3 source file");
 
